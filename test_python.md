@@ -204,25 +204,107 @@
 
 ### 5-2. print関数
 
-プリント関数を利用すると文字列の一番外側のクオートがなくなってみやすくなる
+- プリント関数を利用すると文字列の一番外側のクオートがなくなってみやすくなる
 
-```python
-print('"Isn\'t, " she said.')
-# "Isn\'t, " she said.（一番外側のシングルクオートが外れる）
-```
+  ```python
+  print('"Isn\'t, " she said.')
+  # "Isn\'t, " she said.（一番外側のシングルクオートが外れる）
+  ```
 
 ### 5-3. \n
 
-\nと打つとprint関数を使ったときに改行される
+- \nと打つとprint関数を使ったときに改行される
 
-```python
-s = 'First line.\nSecond line.'
-s
-# 'First line.\nSecond line.'（変数がそのまま表示される）
+  ```python
+  s = 'First line.\nSecond line.'
+  s
+  # 'First line.\nSecond line.'（変数がそのまま表示される）
 
-print(s)
-# First line.（\nのところで改行が入って表示される）
-# Second line.
-```
+  print(s)
+  # First line.（\nのところで改行が入って表示される）
+  # Second line.
+  ```
+
+---
+
+## 6. 文字列2
+
+### 6-1. 文字列に\nがうっかり入っていて改行される場合
+
+- 改行を意味せず、文字列として\nを利用したい
+
+  ```python
+  print('C:\some\name')
+  # C:\some
+  # ame（改行されておかしなことになってしまっている）
+  ```
+
+- print(r)を使う
+
+  ```python
+  print(r'C:\some\name')
+  # C:\some\name（そのまま文字列として使われる）
+  ```
+
+### 6-2. 三連引用符（'''）
+
+- 三連引用符を使うと入力したとおりの文字列を認識してくれる
+
+  ```python
+  #頭にprint('''、最後に''')でしめる
+  print('''
+  ... Usage:
+  ...   -h help
+  ... ''')
+
+  # Usage:
+  #   -h help
+
+
+  #バックスラッシュを使うと前後の改行が消える
+  print('''\
+  ... Usage:
+  ...   -h help
+  ... ''')
+  # Usage:
+  #   -h help
+  ```
+
+### 6-3. 文字列の小技
+
+- 文字列を掛けることができる
+
+  ```python
+  3 * 'un' + 'ium'
+  # 'unununium（unを3回繰り返している）
+  ```
+
+- 文字列をつなげる
+  文字列通しだと「+」いらないが、変数だと「+」がいるのでつねに「+」つけておくとよい
+
+  ```python
+  'Py' 'thon'
+  # 'Python'（文字列だと成立する）
+
+  prefix = 'Py'
+  prefix 'thon'
+  # SyntaxError: invalid syntax（関数と文字列はつなげられない）
+
+  # つなげたいときは「+」を使う
+  prefix + 'thon'
+  # 'Python'
+
+  # 文字列通しでも「+」使ってエラーでないのでデフォこうしたほうがよい
+  'Py' + 'thon'
+  # 'Python'
+
+  # 「+」を使わない利点
+  # 長い文章を結合させるとき
+
+  text = ('Put several strings within parenthese '
+  ...   'to have them joined together.')
+  text
+  # 'Put several strings within parenthese to have them joined together.'
+  ```
 
 ---
