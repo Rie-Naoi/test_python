@@ -168,3 +168,61 @@
   ```
 
 ---
+
+## 5. 文字列 1
+
+### 5-1. 文字列の入力方法
+
+- 文字列は以下どちらかで囲う
+- 文字列の中にシングルクオートを使いたいときはダブルクオートを利用する
+  - `（シングルクオート）
+  - "（ダブルクオート）
+
+  ```python
+  'spam eggs'
+  # 'spam eggs'（文字列になった→これ初めてプログラミングする人わかるのか？）
+
+  'don't'
+  # File "<stadin>", line 1（構文エラーがでる）
+  #  'don't'
+  #      ^
+  # SyntaxError: invalid syntax
+
+  # 解決方法（ダブルクオートを使わないやりかた）
+  # バックスラッシュのあとのシングルクオートだよという意味
+  'don\'t'
+  # "don't"
+
+  # "Yes, " he said. を文字列にしたい場合
+  '"Yes, " he said.'
+  "\"Yes, \" he said."
+
+  # "Isn't, " she said. を文字列にしたい場合
+  '"Isn\'t, " she said.'
+  "\"Isn't, \" she said."
+  ```
+
+### 5-2. print関数
+
+プリント関数を利用すると文字列の一番外側のクオートがなくなってみやすくなる
+
+```python
+print('"Isn\'t, " she said.')
+# "Isn\'t, " she said.（一番外側のシングルクオートが外れる）
+```
+
+### 5-3. \n
+
+\nと打つとprint関数を使ったときに改行される
+
+```python
+s = 'First line.\nSecond line.'
+s
+# 'First line.\nSecond line.'（変数がそのまま表示される）
+
+print(s)
+# First line.（\nのところで改行が入って表示される）
+# Second line.
+```
+
+---
