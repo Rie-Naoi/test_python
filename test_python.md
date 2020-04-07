@@ -609,3 +609,37 @@
   ```
 
   ---
+
+## 12. if文
+
+### 12-1. while文おさらい
+
+- 繰り返し実行するための構文
+
+### 12-2. if文
+
+- 一定の条件を満たしている場合のみ実行する
+- 例：
+
+  ```python
+  # xにinputで入力された文字列をintで数字に変換し代入する
+  >>> x = int(input("Please enter an integer: "))
+  Please enter an integer:  # 入力を待っている状態
+
+  # 42を入力する
+  Please enter an integer: 42 # 42と入れる
+  >>> if x < 0: # もし、xが0未満だった場合
+  ...   x = 0
+  ...   print('Negative changed to zero')
+  ... elif x == 0: # ifが満たされずxが0だった場合
+  ...   print('Zero')
+  ... elif x == 1:　# 上記が満たされずxが1だった場合
+  ...   print('Single')
+  ... else: # 上記以外
+  ...   print('More')
+  ... # なにも打たずに改行する
+  More # 42なので、elseが適用された
+  >>>
+  ```
+
+---
