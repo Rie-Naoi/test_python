@@ -770,7 +770,7 @@
 
 ---
 
-# 16. break文とループでのelse節
+## 16. break文とループでのelse文
 
 - 繰り返し処理を途中でやめたい場合に使う
 - breakのほかに、continue，elseもある
@@ -794,5 +794,27 @@
   9 equals 3 * 3
   >>>
   ```
+
+---
+
+## 17. continue文
+
+```python
+>>> for num in range(2, 10):
+...   if num % 2 == 0:
+...      print("Found an even number", num)
+...      continue # ここがブレイクだと終わってしまう
+...   print("Found a number", num)
+...
+>>>
+Found a number 2
+Found a number 3
+Found an even number 4
+Found an even number 5
+Found a number 6
+Found a number 7
+Found an even number 8
+Found an even number 9
+```
 
 ---
