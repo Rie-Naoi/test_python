@@ -707,7 +707,7 @@
 
 ---
 
-# 15. range関数
+## 15. range関数
 
 - ただ5回繰り返すというような場合はrange関数が便利
 
@@ -816,5 +816,23 @@ Found a number 7
 Found an even number 8
 Found an even number 9
 ```
+
+---
+
+## 18. pass文
+
+- 何もしないことを明示的に記述する
+- 実装を忘れているわけではなく意図的になにもない
+
+  ```python
+  >>> class MyEmptyClass:
+  ...   pass
+  ...
+
+  >>> def initlog(*args):
+  ...   pass
+  ...
+  >>>
+  ```
 
 ---
