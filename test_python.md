@@ -686,3 +686,23 @@
   ```
 
 ---
+
+## 14. for文
+
+- while文と似た繰り返し処理を行う構文
+- for inという書き方をする
+
+  ```python
+  >>> words = ['cat', 'window', 'defenestrate']
+  >>> for w in words: # wordsというリストの単語一つをwに入れる
+  ...   print(w, len(w)) # 単語と単語の文字数を出力
+  ...
+  cat 3
+  window 6
+  defenestrate 12
+
+  # リストの内容を変更するような場合は以下
+  >>> for w in words[:]: # wordsというリストの単語一つをwに入れる
+  ```
+
+---
