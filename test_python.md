@@ -761,11 +761,38 @@
 
 - rangeを使うと簡単にリストを作成できる
 
- ```python
- # 数字が大きくなったら関数で作ったほうが早い
- >>> list(range(5))
- [0,1,2,3,4]
- >>>
- ```
+   ```python
+  # 数字が大きくなったら関数で作ったほうが早い
+  >>> list(range(5))
+  [0,1,2,3,4]
+  >>>
+  ```
+
+---
+
+# 16. break文とループでのelse節
+
+- 繰り返し処理を途中でやめたい場合に使う
+- breakのほかに、continue，elseもある
+
+  ```python
+  >>> for n in range(2, 10): # 2から9までを順番にnに入れる
+  ...   for x in range(2, n): # 2からnまでを順番にxに入れる
+  ...      if n % x == 0: # もし、nをxで割って余りが0ならば、
+  ...         print(n, 'equals', x, '*', n//x) # 素数じゃない出力
+  ...         break # for xに戻る
+  ...   else: # 余りが出たならば
+  ...      print(n, 'is a prime number') # 素数だよ出力
+  ...
+  2 is a prime number
+  3 is a prime number
+  4 equals 2 * 2
+  5 is a prime number
+  6 equals 2 * 3
+  7 is a prime number
+  8 equals 2 * 4
+  9 equals 3 * 3
+  >>>
+  ```
 
 ---
