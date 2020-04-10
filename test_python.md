@@ -865,3 +865,38 @@ Found an even number 9
   ```
 
 ---
+
+## 20. 関数を定義2
+
+- 前回の続き
+- 前回の値を0にしたらどうなるか
+
+  ```python
+  >>> fib(0)
+
+  >>> # 空白行が一行入ってなにも表示されない
+
+  # 実際にはNone（ナン）が出力されている
+  >>> print(fib(0))
+  None
+  ```
+
+- リストに入れて返すプログラムにする
+
+  ```python
+  >>> def fib2(n):
+  ...   """Return a list contining the Fibonacci series up to n."""
+  ...   result = []
+  ...   a, b = 0, 1
+  ...   while a < n:
+  ...      result.append(a) # プリントの代わり
+  ...      a, b = b, a+b
+  ...   return result
+  ...
+  >>> f100 = fib2(100)
+  >>> f100
+  [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+  >>>
+  ```
+
+---
