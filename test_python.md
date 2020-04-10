@@ -900,3 +900,25 @@ Found an even number 9
   ```
 
 ---
+
+## 21. デフォルト引数値1
+
+- 引数 デフォルトの値を指定する
+
+  ```python
+  >>> def ask_ok(prompt, retries=4, complaint='Yes or no, please!'): # 関数名ask_ok
+  ...   while True:
+  ...      ok = input(prompt)
+  ...      if ok in ('y', 'ye', 'yes'):
+  ...         return True
+  ...      if ok in ('n', 'no', 'nop', 'nope'):
+  ...         return False
+  ...      retries = retries -1 # リトライ
+  ...      if retries < 0:
+  ...         raise OSError('uncooperative user')
+  ...      print(complaint)
+  ...
+  >>> ask_ok('Do you really want to quit?') # 1番目の引数変えることができる
+  ```
+
+---
