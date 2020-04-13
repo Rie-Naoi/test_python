@@ -1077,3 +1077,25 @@ Sketch : Cheese Shop Sketch
 ```
 
 ---
+
+## 26. 任意引数リスト
+
+- アスタリスクが1つの引数について
+- 任意引数、可変長引数、可変個引数と言う
+- 引数の数を任意の数、可変で受け取ることができる引数
+
+  ```python
+  >>> def concat(*args, sep="/"): # 可変長はキーワードの前に
+  ...   return sep.join(args) # sepという文字で接合
+  ...
+  >>> concat("earth", "mars", "venus")
+  'earth/mars/venus'
+  >>>
+  >>> concat("earth", "mars", "venus", sep=".")
+  'earth.mars.venus'
+
+  # 普通の引数のあとに可変長にする
+  >>> def write_multiple_items(file, separator, *args):
+  ```
+
+---
