@@ -1189,3 +1189,37 @@ Sketch : Cheese Shop Sketch
   >>>
 
 ---
+
+## 30. 関数アノテーション
+
+- annotation 注釈という意味
+- Pythonは文字列なのか数値なのか型を書かない言語
+- コメントのように型を書くことができる
+
+  ```python
+  >>> def f(ham: str, eggs: str = 'eggs') -> str:
+  ...   print("Annotations:", f.__annotations__)
+  ...   print("Arguments:", ham, eggs)
+  ...   return ham + 'and' + eggs
+  ...
+  >>> f('spam')
+  Annotations: {'return': <class 'str'>, 'ham': <class 'str'>, 'eggs': <class 'str'>}
+  Arguments: spam eggs
+  'spam and eggs'
+
+  
+  # 文字列ではなく数値を入れてもエラーにならない
+  # 文字列と数値を結合としようとしたエラーは出た
+  # 実行時にエラーで止めてくれるというようなものではない
+  # 開発ツールで注意を促してくれるツールがあるのでそちらで
+  >>> f(1)
+  Annotations: {'return': <class 'str'>, 'ham': <class 'str'>, 'eggs': <class 'str'>}
+  Arguments: 1 eggs # エラーにならない
+  traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "<stdin>", line 4, in f
+  TypeError: unsupported operand type(s) for +: 'int' and 'str' # 文字列と数値をくっつけようとしてるよのエラーは出る
+  >>>
+  ```
+
+---
