@@ -1164,3 +1164,28 @@ Sketch : Cheese Shop Sketch
   ```
 
 ---
+
+## 29. ドキュメンテーション文字列
+
+- 関数にドキュメンテーション文字列をつけることができる
+- """ 3つ続けて書いて、開始、終了も"""
+- ドキュメンテーションを兼ねることができる
+- この関数の振る舞いどういうことなのか文章で示すことができる
+- 関数定義の内側、下に書く
+
+  ```python
+  >>> def my_function():
+  ...   """Do nothing, but document it.
+  ...
+  ...   No, really, it doesn't do anything
+  ...   """
+  ...   pass
+  ...
+  >>> print(my_function.__doc__) # 関数名と.__doc__で表示させることもできる
+  do nothing, but document it.
+
+     No, really, it doesn't do anything.
+
+  >>>
+
+---
