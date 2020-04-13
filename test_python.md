@@ -1138,3 +1138,29 @@ Sketch : Cheese Shop Sketch
   ```
 
 ---
+
+## 28. ラムダ式
+
+- ラムダ（lambda）
+- 関数を返す部分でラムダを利用する
+
+  ```python
+  >>> def make_incrementor(n):
+  ...   return lambda x: x + n # 名前のない関数を作れる
+  ...
+  >>> f = make_incrementor(42)
+  >>> f(0)
+  42
+  ```
+
+- それ以外の利用方法
+
+  ```python
+  >>> pairs = [(1, 'one'), (2,'two'), (3, 'three'), (4, 'four')] # （）はタプル
+  >>> pairs.sort(key=lambda pair: pair[1]) # 文字列のほうを使ってソートして
+  >>> pairs
+  [(4,'four'),  (1, 'one'), (3,'three'), (2, 'two')]
+  >>>
+  ```
+
+---
