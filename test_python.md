@@ -1043,3 +1043,37 @@ Found an even number 9
   ```
 
 ---
+
+## 25. キーワード引数3
+
+```python
+>>> def cheeseshop(kind, *arguments, **keywords):
+...   print("-- Do you habe any", kind, "?")
+...   print("-- I'm sorry, we're all out of", kind)
+...   for arg in arguments:
+...      print(arg)
+...   print("-" * 40)
+...   keys = sorted(keywords.keys()) # キーワードをソート
+...   for kw in keys:
+...      print(kw, ":", keywords[kw])
+...
+# キーワードを指定していない引数までが*arguments
+# キーワードを指定している3つが**keywords
+>>> cheeeseshop("Limburger", "It's very runny, sir."
+...      "It's really bery, BERY runny, sir.",
+...      shopkeeper="Michael Palin",
+...      client="John Cleese"<
+...      sketch="Cheese Shop Sketch")
+
+-- Do you habe any Limburger ?
+-- I'm sorry, we're all out of Limburger
+It's very runny, sir.
+It's really very, VERY runny, sir.
+----------------------------------------
+client : John Cleese
+shopkeeper : Michael Palin
+Sketch : Cheese Shop Sketch
+>>>
+```
+
+---
