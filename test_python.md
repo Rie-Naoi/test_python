@@ -1013,3 +1013,33 @@ Found an even number 9
   ```
 
 ---
+
+## 24. キーワード引数2
+
+- 順番に引数出すのと、キーワードで出すのを混在してもできる
+
+  ```python
+  >>> parrot('a thousand', state='pushing up the daisies')
+  -- This parrot woundn't voom if you put a thousand volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's oushing up the daisies !
+  ```
+
+- 正しくない（不正な）呼び出し例
+
+  ```python
+  # なにも値を渡さない→エラー
+  >>> parrot()
+
+  # voltageだけキーワードにして、次をキーワード入れない→エラー
+  # 1つめにキーワード入れたらずっと書かないといけない
+  >>> parrot(voltage=1000, 'dead')
+
+  # キーワード使わずvoltageの値を指定したあとに、キーワード使ってvoltageを指定する→エラー
+  >>> parrot(100, voltage=200)
+
+  # キーワードを間違って指定→エラー
+  >>> parrot(actor='John Clease')
+  ```
+
+---
