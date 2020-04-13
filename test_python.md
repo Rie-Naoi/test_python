@@ -1275,3 +1275,35 @@ Sketch : Cheese Shop Sketch
   ```
 
 ---
+
+## 32. スタックやキューとしてリストを使用
+
+- スタックとは、「後入れ先出し」英語ではLIFO
+
+  ```python
+  # appendとpopを使ってデータをスタックする
+  >>> stack = [3, 4, 5]
+  >>> stack.append(6)
+  >>> stack.append(7)
+  >>> stack
+  [3, 4, 5, 6, 7]
+  >>> stack.pop()
+  7
+  >>> stack
+  [3, 4, 5, 6]
+  ```
+
+- キューとは、「先入れ先出し」英語ではFIFO
+
+  ```python
+  >>> from collections import deque # 違う回で詳細説明する
+  >>> queue = deque(["Eric", "John", "Michael"])
+  >>> queue.append("Terry")
+  >>> queue.append("Graham")
+  >>> queue.popleft()
+  'Eric'
+  >>> queue
+  deque(['Michael', 'Terry', 'Graham'])
+  >>>
+
+---
