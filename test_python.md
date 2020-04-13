@@ -967,5 +967,49 @@ Found an even number 9
   [2]
   ```
 
-  ---
-  
+---
+
+## 23. キーワード引数1
+
+- キーワード引数の呼び出し方
+
+  ```python
+  # 引数、1つめはなにも指定がなく、2-4は文字を引数にしている
+  >>> def parrot(voltage, state=' a stiff', action='voom', type='Norwegian Blue'):
+  ...   print("-- This parrot wouldn't", action, end=' ')
+  ...   print("if you put", voltage, "volts through it.")
+  ...   print("-- Lovely plumage, the", type)
+  ...   print("-- It's", state, "!")
+  ...
+  # 最初のvoltageに1000を入れる
+  >>> parrot(1000)
+  -- This parrot woundn't voom if you put 1000 volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's a stiff !
+
+  # キーワードを指定して引数を設定できる
+  >>> parrot(voltage=500) # さきほどと同じように指定できる
+  -- This parrot woundn't voom if you put 500 volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's a stiff !
+
+  # 他のキーワードについても指定できる（順番飛ばせる）
+  >>> parrot(voltage=300, action='VOOOOM')
+  -- This parrot woundn't VOOOOM if you put 300 volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's a stiff !
+
+  # 順番逆にしても呼び出しできる
+  >>> parrot(action='VOOOOOOOOM', voltage=100)
+  -- This parrot woundn't VOOOOOOOOM if you put 100 volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's a stiff !
+
+  # キーワードを指定しない場合は順番に
+  >>> parrot('a million', 'bereft of life', 'jump')
+  -- This parrot woundn't jump if you put a million volts through it. # 改行していないのはend=' 'が入っているから
+  -- Lovely plumage, the Norwegian Blue
+  -- It's bereft of life !
+  ```
+
+---
