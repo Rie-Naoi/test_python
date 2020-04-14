@@ -1307,3 +1307,30 @@ Sketch : Cheese Shop Sketch
   >>>
 
 ---
+
+## 33. リスト内包表記1
+
+リストを生成するコードを簡単に記述できる
+
+- 普通に書いた場合
+
+  ```python
+  >>> squares = []
+  >>> for x in range(10):
+  ...   squares.append(x**2)
+  ...
+  >>> squares
+  [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+  >>>
+  ```
+
+- リスト内包表記で書いた場合
+
+  ```python
+  >>> squares = [x**2 for x in range(10)]
+  >>> squares
+  [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+  >>>
+  ```
+
+---
