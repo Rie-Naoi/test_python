@@ -1620,3 +1620,31 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 26. continue
+
+- 繰り返し処理を終了するbreakと違い、continueはその周の処理だけスキップすることができる
+- continueもif文などと組み合わせて利用します
+- while文でも同じように使うことができる
+
+### 例（continue）
+
+- 入力（numberが2で割り切れるとき、その周の繰り返しをスキップ）
+
+  ```python
+  >>> numbers = [1, 2, 3, 4, 5, 6]
+  >>> for number in numbers:
+  ...    if number % 2 == 0:
+  ...        continue
+  ...    print(number)
+  ```
+
+- 出力
+
+  ```console
+  1
+  3
+  5
+  ```
+
+---
