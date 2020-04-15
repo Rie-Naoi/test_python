@@ -1428,3 +1428,51 @@ Falseのときには処理が実行されない
 
 ---
 
+## 22. 辞書の要素の更新・追加
+
+### 22-01. 辞書の要素を更新する
+
+- 辞書はリストと同じように更新と追加することができる
+- 辞書名[キー名] = 値で要素の更新ができる
+
+#### 例（辞書の要素を更新する）
+
+- 入力
+
+  ```python
+  >>> fruits = {'apple':'red', 'banana':'yellow', 'grape':'purple'}
+  >>> fruits['apple'] = 'green'
+  >>> print('appleの色は' + fruits['apple'] + 'です）
+  ```
+
+- 出力（キー名がappleである要素の値が更新された）
+
+  ```console
+  appleの色はgreenです
+  ```
+
+---
+
+### 22-02. 辞書に要素を追加する
+
+- 「辞書名[新しいキー名] = 値
+- 辞書に新しい要素を追加できる
+- 辞書にすでにあるキー名を指定してしまうと値の追加ではなく更新になってしまうので注意する
+
+#### 例（辞書に要素を追加する）
+
+- 入力（キー名がpeachである要素の値を追加）
+
+  ```python
+  >>> fruits = {'apple':'red', 'banana':'yellow'}
+  >>> fruits['peach'] = 'pink'
+  >>> print(fruits)
+  ```
+
+- 出力
+
+  ```console
+  {'peach':'pink', 'banana':'yellow', 'apple':'red'}
+  ```
+
+---
