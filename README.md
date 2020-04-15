@@ -932,3 +932,91 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 13. 条件式を組み合わせる
+
+### 13-01. and
+
+- 「条件1も2も成り立つ」というような場合の条件式は「and」を使う
+- 「条件1 and 条件2」のように書く
+- 「and」を用いて複数の条件式を組み合わせると全ての条件式が「True」の場合に全体が「True」になる
+- 例：
+  | 論理演算子 - and | |
+  | :---- | :---- |
+  | True and True | True |
+  | True and False | False |
+  | False and True | False |
+  | False and False | False |
+
+#### 入力例（and）
+
+- 入力
+
+  ```python
+  >>> time = 14
+  >>> if time > 10 and time < 18:
+  ...    print('就業時間です')
+  ```
+
+- 出力
+
+  ```console
+  就業時間です
+  ```
+
+---
+
+### 13-02. or
+
+- 「条件1か2が成り立つ」というような場合の条件式は「or」を用いる
+- 「条件1 or 条件2」のように書く
+- 複数の条件式のうち1つでもTrueであれば全体がTrueになる
+- 例：
+  | 論理演算子 - or | |
+  | :---- | :---- |
+  | True and True | True |
+  | True and False | True |
+  | False and True | True |
+  | False and False | False |
+
+#### 入力例（or)
+
+- 入力
+
+  ```python
+  >>> time = 15
+  >>> if time == 10 or time == 15:
+  ...    print('おやつの時間です')
+  ```
+
+- 出力
+
+  ```console
+  おやつの時間です
+  ```
+
+---
+
+### 13-03. not
+
+- 「not」を用いると条件の否定ができる
+- 「not 条件式」のようにする
+- 条件式が「True」であれば全体が「False」に、「False」であれば「True」になる
+
+#### 入力例（not)
+
+- 入力
+
+  ```python
+  >>> time = 9
+  >>> if not time == 18:
+  ...    print('退社時刻ではありません')
+  ```
+
+- 出力
+
+  ```console
+  退社時刻ではありません
+  ```
+
+---
