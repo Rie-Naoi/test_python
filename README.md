@@ -1476,3 +1476,32 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 23. for文
+
+### 23-01. 辞書の要素を全て取得する
+
+- 辞書もfor文を用いて要素を1つずつ取り出して処理することができる
+- 「for 変数名 in 辞書:」
+- 定義された変数にそれぞれの要素のキーが1つずつ代入される
+- 要素の値はキーが代入された変数を用いて取り出せる
+
+#### 例（辞書の要素を全て取得する）
+
+- 入力
+
+  ```python
+  >>> fruits = {'apple':'red', 'banana':'yellow', 'grape':'purple'}
+  >>> for fruit_key in fruits:
+  ...    print(fruits_key + 'の色は' + fruits[fruits_key] + 'です')
+  ```
+
+- 出力
+
+  ```console
+  appleの色はredです
+  bananaの色はyellowです
+  grapeの色はpurpleです
+  ```
+
+---
