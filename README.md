@@ -1690,7 +1690,7 @@ Falseのときには処理が実行されない
 - 購入する個数の入力はinputを用いる
 - 入力した個数と、支払い金額を順に出力する
 
-#### 演習（商品を購入しよう）
+### 演習（商品を購入しよう）
 
 - 入力
 
@@ -1714,6 +1714,43 @@ Falseのときには処理が実行されない
 
   # 変数total_priceと型変換を用いて、「支払い金額は○○円です」と出力
   >>> print('支払い金額は' + str(total_price) + '円です')
+  ```
+
+---
+
+## 29. 条件分岐をしよう
+
+- 所持金と購入代金を用いて条件分岐を作る
+
+- 入力
+
+  ```python
+  # 変数moneyに数値1000を代入してください
+  >>> money = 1000
+
+  >>> items = {'apple': 100, 'banana': 200, 'orange': 400}
+  >>>for item_name in items:
+  ...    print('------------------------')
+
+         # 変数moneyを用いて「財布には○○円入っています」のように出力
+  ...    print('財布には' + str(money) + '円入っています')
+
+  ...    print(item_name + 'は1個' + str(items[item_name]) + '円です')
+
+  ...    input_count = input('購入する' + item_name + 'の個数を入力してください：')
+  ...    print('購入する' + item_name + 'の個数は' + input_count + '個です')
+
+  ...    count = int(input_count)
+  ...    total_price = items[item_name] * count
+  ...    print('支払い金額は' + str(total_price) + '円です')
+
+         # moneyとtotal_priceの比較結果によって条件を分岐
+  ...    if money >= total_price:
+  ...        print(item_name + 'を' + str(count) + '個買いました')
+  ...        money -= total_price
+  ...    else:
+  ...        print('お金が足りません')
+  ...        print(item_name + 'を買えませんでした')
   ```
 
 ---
