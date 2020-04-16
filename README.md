@@ -1655,7 +1655,6 @@ Falseのときには処理が実行されない
 
 - いままで学んだことを組み合わせてお買い物代金を計算するプログラムを作る
 - コンソールに果物を購入する個数を入力し、個数に応じた処理内容を出力させる
-- 
 
 ---
 
@@ -1681,6 +1680,40 @@ Falseのときには処理が実行されない
 
   # 「○○は1個▲▲円です」となるように出力
   ...    print(item_name + 'は1個' + str(items[item_name]) + '円です')
+  ```
+
+---
+
+## 28. 商品を購入しよう
+
+- 繰り返し処理を用いて果物を順番に購入できるようにする
+- 購入する個数の入力はinputを用いる
+- 入力した個数と、支払い金額を順に出力する
+
+#### 演習（商品を購入しよう）
+
+- 入力
+
+  ```python
+  >>> items = {'apple': 100, 'banana': 200, 'orange': 400}
+  >>> for item_name in items:
+  ...    print('------------------------')
+  ...    print(item_name + 'は1個' + str(items[item_name]) + '円です')
+
+  # inputを用いて入力を受け取り、変数input_countに代入
+  >>> input_count = input('購入する' + item_name + 'の個数を入力してください：')
+
+  # キーと変数input_countを用いて「購入する○○の個数は△△個です」となるよう出力
+  >>> print('購入する' + item_name + 'の個数は' + input_count + '個です')
+
+  # input_countを数値として変数countに代入
+  >>> count = int(input_count)
+
+  # 変数total_priceに果物1個の値段と変数countを掛けた値を代入
+  >>> total_price = items[item_name] * count
+
+  # 変数total_priceと型変換を用いて、「支払い金額は○○円です」と出力
+  >>> print('支払い金額は' + str(total_price) + '円です')
   ```
 
 ---
