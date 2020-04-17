@@ -2968,7 +2968,7 @@ Falseのときには処理が実行されない
   >>> menu_item1.price = 500
 
   # menu_item1.info()の値を出力
-  >>> pring(menu_item1.info())
+  >>> print(menu_item1.info())
 
   >>> menu_item2 = MenuItem()
   >>> menu_item2.name = 'チョコケーキ'
@@ -2983,6 +2983,75 @@ Falseのときには処理が実行されない
   ```console
   サンドイッチ¥: 500
   チョコケーキ¥: 400
+  ```
+
+---
+
+## 52. インスタンスメソッド（引数）
+
+### 52-01. クラスとインスタンスをおさらい
+
+- クラス
+  - 設計図のようなもの
+- インスタンス
+  - 設計図からつくる実際の「もの」にあたるもの
+  - 情報として「インスタンス変数」を持つ
+  - 処理として「インスタンスメソッド」を持つ
+
+---
+
+### 52-02. 合計金額を求めるメソッド
+
+- メニューの合計金額を求めるメソッドをつくってみる
+- インスタンスメソッドに引数を渡す場合、メソッドの定義側では「self」の分だけ引数の順番がずれることに注意する
+
+#### 例（合計金額を求めるメソッド）
+
+- 入力（countに4が代入される）
+
+  ```python
+  >>> class MenuItem:
+  ...
+  ... ...def get_total_price(self, count):
+
+  ...
+  >>> menu_item1.get_total_price(4)
+  ```
+
+---
+
+#### 演習（インスタンスメソッド（引数））
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def info(self):
+  ...        return self.name + ': ¥' + str(self.price)
+
+  # get_total_priceメソッドを定義
+  ...    def get_total_price(self, count):
+  ...        total_price = self.price * count
+  ...        return total_price
+
+  >>> menu_item1 = MenyuItem()
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> menu_item1.price = 500
+
+  >>> print(menu_item1.info())
+
+  # get_total_priceメソッドを呼び出す
+  >>> result = menu_item1.get_total_price(4)
+
+  # 「合計金額は○○円です」となるように出力
+  >>> print('合計金額は' + str(result) + '円です')
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ: ¥500
+  合計は2000円です
   ```
 
 ---
