@@ -4087,3 +4087,80 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 67. __init__メソッドのオーバーライド
+
+### 67-01. __init__メソッドも上書きしよう
+
+- __init_メソッドも子クラスでオーバーライドできる
+- Foodクラスではcalorieのインスタンス変数の値をインスタンスを生成する時に代入できるようになる
+
+---
+
+### 67-02. __init__メソッドのオーバーライド
+
+- Foodクラス内でMenuItemクラスの__init__メソッドを上書きしてみる
+- オーバーライドする場合には、引数の数などを変えることも可能
+
+#### 例（__init__メソッドのオーバーライド）
+
+- 入力（__init__クラスを変更することで、引数でカロリーの情報を渡せる）
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> food1 = Food('サンドイッチ', 500, 330)
+    ```
+  
+  - food.pyファイル
+
+    ```python
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie)
+    ```
+
+---
+
+#### 演習（__init__メソッドのオーバーライド）
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+
+    # __init__メソッドを定義
+    ...    def __init__(self, name, price, calorie):
+    ...        self.name = name
+    ...        self.price = price
+    ...        self.calorie = calorie
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.calorie) + 'Kcal）'
+
+    ...    def calorie_info(self):
+    ...        print(str(self.calorie) + 'Kalです')
+    ```
+
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    # Food()に引数を追加
+    >>> food1 = Food('サンドイッチ', 500, 330)
+
+    # 以下の1行は削除
+    # food1.calorie = 330
+
+    >>> print(food1.info())
+
+    >>> drink1 = Drink('コーヒー', 300)
+    >>> drink1.amount = 180
+    >>> print(drink1.info())
+    ```
+
+---
