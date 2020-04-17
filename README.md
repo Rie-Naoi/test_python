@@ -3901,3 +3901,62 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 64. インスタンスメソッドの追加
+
+### 64-01. インスタンスメソッドを追加する
+
+- 親クラスから引き継いだメソッド以外にも独自にメソッドを追加することもできる
+- Foodクラスのインスタンスにカロリーの情報を追加して、その値を出力するためのメソッドを追加する
+
+---
+
+### 64-02. 子クラスのインスタンスメソッド
+
+- Foodクラス内に「calorie_info」メソッドを追加してみる
+- 子クラスは「親クラス内に定義されているメソッド」と「独自に定義したメソッド」の両方が使える
+- 親クラスでは子クラスのメソッドは使えない
+
+#### 例（子クラスのインスタンスメソッド）
+
+- 入力
+  - food.pyファイル（Foodクラス内に独自のインスタンスメソッドを追加）
+
+    ```python
+    >>> class Food(MenuItem):
+    ...    def calorie_info(self):
+    ```
+
+---
+
+#### 演習（インスタンスメソッドの追加）
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+    # calorie_infoメソッドを定義
+    ...    def calorie_info(self):
+    ...        print(str(sel.calorie) + 'Kcalです')
+    ```
+  
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500)
+
+    # food1のcalorieに「330」を代入
+    >>> food1.calorie = 330
+
+    # food1に対してcalorie_infoメソッドを呼び出す
+    >>> food1.calorie_info()
+    ```
+
+---
+
