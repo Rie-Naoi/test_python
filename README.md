@@ -2149,7 +2149,7 @@ Falseのときには処理が実行されない
 - 戻り値がある場合、関数の呼び出す部分がそのまま値に置き換わる
 - 関数の呼び出し部分を変数に代入することができる
 
-#### 例
+#### 例（戻り値を受け取ろう）
 
 - 入力（1 + 3の結果を呼び出し元に返す）
 
@@ -2290,7 +2290,7 @@ Falseのときには処理が実行されない
 
 ---
 
-## 42. じゃんけんの結果を判定しよう
+## 41. じゃんけんの結果を判定しよう
 
 - じゃんけんの結果を判定する関数を作る
 
@@ -2345,5 +2345,129 @@ Falseのときには処理が実行されない
 >>> else:
 ...    print('正しい数値を入力してください')
 ```
+
+---
+
+## 42. モジュールを使おう
+
+### 42-01. コードを分けよう
+
+- コードが増えて長くなってくるとわかりづらくなる
+- 予期しないバグを引き起こしやすくなる
+- コードを分ける方法を学ぶ
+
+---
+
+### 42-02. モジュール
+
+- モジュールとはpythonのコードが書かれたファイルのこと
+- 別ファイルをモジュールとして読み込む
+- 関数の定義部分を別ファイルにうつすなど
+
+---
+
+### 42-03. import
+
+- importを使うことでモジュールを読み込みできる
+- モジュールを読み込んで使いたいファイルに「import モジュール名」と書くことで読み込みできる
+- モジュール名はファイル名から拡張子（.py）を取り除いたもの
+
+---
+
+### 42-04. モジュールの使い方
+
+- 「モジュール名.関数名()」と書くことで、モジュール内の関数を実行することができる
+- 引数がある場合、関数を使用するときと同様に()の中に書く
+
+#### 例（モジュールの使い方）
+
+- script.pyファイル
+
+  ```python
+  >>> import utils
+
+  >>> utils.validate(player_hand):
+  ...    compuer = 1
+  ...    utils.point_hand(player_hand, player_name)
+  ```
+
+- utils.pyファイル
+
+    ```python
+    >>> def validate(hand):
+    >>> def print_hand(hand, name = 'ゲスト')
+    >>> def judge(player, computer)
+    ```
+
+---
+
+#### 演習（モジュールを使おう）
+
+- script.pyファイル
+
+  ```python
+  # 3つの関数のコードをutils.pyファイルに移す
+  # こちらのコードは削除する
+
+  # utils.pyファイルをモジュールとして読み込む
+  >>> import utils
+
+  >>> print('じゃんけんをはじめます')
+  >>> player_name = input('名前を入力してください：')
+  >>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
+  >>> player_hand = int(input('数字で入力してください：'))
+
+  # utilsモジュール内の関数validateを呼び出す
+  >>> if utils.validate(player_hand):
+  ...    computer_hand = 1
+  ...    if player_name == '':
+  
+  # utilsモジュール内の関数print_handを呼び出す
+  ...        utils.print_hand(player_hand)
+  ...    else:
+
+  # utilsモジュール内の関数validateを呼び出す
+  ...        utils.print_hand(player_hand, player_name)
+
+  # utilsモジュール内の関数validateを呼び出す
+  ...    utils.print_hand(computer_hand, 'コンピューター')
+
+  # utilsモジュール内の関数judgeを呼び出す
+  >>>    result = utils.judge(player_hand, computer_hand)
+
+  # 変数resultを出力
+  >>>    print('結果は' + result + 'でした')
+
+  >>> else:
+  ...    print('正しい数値を入力してください')
+  ```
+
+- utils.pyファイル
+
+  ```python
+  >>> def validate(hand):
+  ...    if hand < 0 or hand > 2:
+  ...        return False
+  ...    return True
+
+  >>> def print_hand(hand, name='ゲスト'):
+  ...    hands = ['グー', 'チョキ', 'パー']
+  ...    print(name + 'は' + hands[hand] + 'を出しました')
+
+  # 関数judgeを定義してください
+  >>> def jugge(player, computer):
+
+  # playerとcomputerの比較結果によって条件を分岐
+  ...    if player == computer :
+  ...        return '引き分け'
+  ...    elif player == 0 and computer == 1:
+  ...        return '勝ち'
+  ...    elif player == 1 and computer == 2:
+  ...        return '勝ち'
+  ...    elif player == 2 and computer == 0:
+  ...        return '勝ち'
+  ...    else:
+  ...        return '負け'
+  ```
 
 ---
