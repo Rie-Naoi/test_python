@@ -3834,3 +3834,70 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 63. 継承のしくみ
+
+### 63-01. 継承されるもの
+
+- 継承を用いると子クラスには、親クラスのインスタンスメソッドが引き継がれる
+- FoodクラスのインスタンスもMenuItemクラスの「info」メソッドが使える
+
+---
+
+### 63-02. 子クラスのインスタンス
+
+- 継承すると子クラスは親クラスのインスタンスメソッドを引き継ぐ
+- MenuItemクラス内に定義してある「__init__」メソッドや、「info」メソッドを利用できる
+
+#### 例（子クラスのインスタンス）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> food1 = Food('サンドイッチ', 500)
+    >>> print(food1.info())
+    ```
+  
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price)
+    ```
+
+- 出力
+  - script.pyファイル
+
+    ```console
+    サンドイッチ: ¥500
+    ```
+
+---
+
+#### 演習（継承のしくみ）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    # FoodクラスとDrinkクラスをそれぞれ読み込む
+    >>> from food import Food
+    >>> from drink import Drink
+
+    # Foodクラスのインスタンスを作成し変数food1に代入
+    >>> food1 = Food('サンドイッチ', 500)
+
+    # food1に対してinfoメソッドを呼び出して戻り値を出力
+    >>> print(food1.info())
+
+    # Drinkクラスのインスタンスを生成し変数drink1に代入
+    >>> drink1 = Drink('コーヒー', 300)
+
+    # drink1に対してinfoメソッドを呼び出して戻り値を出力
+    >>> print(drink1.info())
+    ```
+
+---
