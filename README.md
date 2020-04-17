@@ -4313,3 +4313,139 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 70. 総合演習
+
+### 70-01. 料理注文システムを完成させよう
+
+- 最後に料理注文システムを完成させる
+
+---
+
+### 70-02. 合計金額を出力する
+
+- コンソールに入力された数値を用いて、合計金額を出力できるようにする
+
+---
+
+#### 演習（総合演習）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500, 330)
+    >>> food2 = Food('チョコケーキ', 400, 450)
+    >>> food3 = Food('シュークリーム', 200, 180)
+
+    >>> foods = [food1, food2, food3]
+
+    >>> drink1 = Drink('コーヒー', 300, 180)
+    >>> drink2 = Drink('オレンジジュース', 200, 350)
+    >>> drink3 = Drink('エスプレッソ', 300, 30)
+
+    >>> drinks = [drink1, drink2, drink3]
+
+    >>> print('食べ物メニュー')
+    >>> index = 0
+    >>> for food in foods:
+    ...    print(str(index) + '. ' + food.info())
+    ...    index += 1
+
+    >>> print('飲み物メニュー')
+    >>> index = 0
+    >>> for drink in drinks:
+    ...    print(str(index) + '. ' + drink.info())
+    ...    index += 1
+
+    >>> print('--------------------')
+
+    >>> food_order = int(input('食べ物の番号を選択してください：'))
+    >>> selected_food = foods[food_order]
+
+    >>> drink_order = int(input('飲み物の番号を選択してください：'))
+    >>> selected_drink = drinks[drink_order]
+
+    # コンソールから入力を受け取り、変数countに代入
+    >>> count = int(input('何セット買いますか？（3つ以上で1割引）：'))
+
+    # selected_foodとselected_drinkのそれぞれに対して、get_total_priceメソッドを呼び出す
+    result = selected_food.get_total_price(count) + selected_drink.get_total_price(count)
+
+    # 「合計は○○円です」となるように出力
+    print('合計は' + str(result) + '円です')
+    ```
+
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self, name, price):
+    ...        self.name = name
+    ...        self.price = price
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price)
+
+    ...    def get_total_price(self, count):
+    ...        total_price = self.price * count
+
+    ...        if count >= 3:
+    ...            total_price *= 0.9
+
+    ...        return round(total_price)
+    ```
+  
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie):
+    ...        super().__init__(name, price)
+    ...        self.calorie = calorie
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.calorie) + 'Kcal）'
+
+    ...    def calorie_info(self):
+    ...        print(str(self.calorie) + 'Kcalです')
+    ```
+
+  - drink.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Drink(MenuItem):
+    ...    def __init__(self, name, price, amount):
+    ...        super().__init__(name, price)
+    ...        self.amount = amount
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.amount) + 'mL）'
+    ```
+
+- 出力（食べ物:0, 飲み物:0, 数:4）
+
+  ```console
+  食べ物メニュー
+  0. サンドイッチ: ¥500 （330Kcal）
+  1. チョコケーキ: ¥400 （450Kcal）
+  2. シュークリーム: ¥200 （180Kcal）
+  飲み物メニュー
+  0. コーヒー: ¥300 （180mL）
+  1. オレンジジュース: ¥200 （350mL）
+  2. エスプレッソ: ¥300 （30mL）
+  --------------------
+  食べ物の番号を選択してください： #0
+  飲み物の番号を選択してください： #0
+  何セット買いますか？（3つ以上で1割引）： #4
+  合計は2880円です
+  ```
+
+---
