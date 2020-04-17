@@ -2207,19 +2207,19 @@ Falseのときには処理が実行されない
 
 - 入力（return以降の処理「Hello World」は実行されない）
 
-```python
->>> def add(a, b):
-...    return a + b
-...    print('Hello World')
->>> sum = add(1, 3)
->>> print(sum)
-```
+  ```python
+  >>> def add(a, b):
+  ...    return a + b
+  ...    print('Hello World')
+  >>> sum = add(1, 3)
+  >>> print(sum)
+  ```
 
 - 出力
 
-```console
-4
-```
+  ```console
+  4
+  ```
 
 ---
 
@@ -2231,19 +2231,19 @@ Falseのときには処理が実行されない
 
 - 入力
 
-```python
->>> def hello(name = 'ゲスト'):
-...    if name == 'ゲスト':
-...        return '名前を教えてください'
-...    return name + 'さん、ようこそ！'
->>> print(hello())
-```
+  ```python
+  >>> def hello(name = 'ゲスト'):
+  ...    if name == 'ゲスト':
+  ...        return '名前を教えてください'
+  ...    return name + 'さん、ようこそ！'
+  >>> print(hello())
+  ```
 
 - 出力
 
-```console
-名前を教えてください
-```
+  ```console
+  名前を教えてください
+  ```
 
 ---
 
@@ -2257,36 +2257,38 @@ Falseのときには処理が実行されない
 
 #### 演習（じゃんけんをしよう）
 
-```python
->>> def validate(hand):
-...    if hand < 0 or hand > 2:
-...        return False
-...    return True
+- 入力
 
->>> def print_hand(hand, 'ゲスト'):
-...    hands =['グー', 'チョキ', 'パー']
-...    print(name + 'は' + hands[hand] + 'を出しました')
+  ```python
+  >>> def validate(hand):
+  ...    if hand < 0 or hand > 2:
+  ...        return False
+  ...    return True
 
->>> print('じゃんけんをはじめます')
->>> player_name = input('名前を入力してください：')
->>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
->>> player_hand = int(input('数字で入力してください：'))
+  >>> def print_hand(hand, 'ゲスト'):
+  ...    hands =['グー', 'チョキ', 'パー']
+  ...    print(name + 'は' + hands[hand] + 'を出しました')
 
->>> if validate(player_hand):
-# 変数computer_handに数値1を代入
-...    computer_hand = 1
+  >>> print('じゃんけんをはじめます')
+  >>> player_name = input('名前を入力してください：')
+  >>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
+  >>> player_hand = int(input('数字で入力してください：'))
 
-...    if player_name == '':
-...        print_hand(player_hand)
-...    else:
-...        print_hand(player_hand, player_name)
+  >>> if validate(player_hand):
+  # 変数computer_handに数値1を代入
+  ...    computer_hand = 1
 
-# 第1引数をcomputer_hand、第2引数を文字列「コンピューター」として関数print_handを呼び出す
-...    print_hand(compuer_hand, 'コンピューター')
+  ...    if player_name == '':
+  ...        print_hand(player_hand)
+  ...    else:
+  ...        print_hand(player_hand, player_name)
 
-... else:
-...    print('正しい数値を入力してください')
-```
+  # 第1引数をcomputer_hand、第2引数を文字列「コンピューター」として関数print_handを呼び出す
+  ...    print_hand(compuer_hand, 'コンピューター')
+
+  ... else:
+  ...    print('正しい数値を入力してください')
+  ```
 
 ---
 
@@ -2298,53 +2300,53 @@ Falseのときには処理が実行されない
 
 - 入力
 
-```python
->>> def validate(hand):
-...    if hand < 0 or hand > 2:
-...        return False
-...    return True
+  ```python
+  >>> def validate(hand):
+  ...    if hand < 0 or hand > 2:
+  ...        return False
+  ...    return True
 
->>> def print_hand(hand, name='ゲスト'):
-...    hands = ['グー', 'チョキ', 'パー']
-...    print(name + 'は' + hands[hand] + 'を出しました')
+  >>> def print_hand(hand, name='ゲスト'):
+  ...    hands = ['グー', 'チョキ', 'パー']
+  ...    print(name + 'は' + hands[hand] + 'を出しました')
 
-# 関数judgeを定義してください
->>> def jugge(player, computer):
+  # 関数judgeを定義してください
+  >>> def jugge(player, computer):
 
-# playerとcomputerの比較結果によって条件を分岐
-...    if player == computer :
-...        return '引き分け'
-...    elif player == 0 and computer == 1:
-...        return '勝ち'
-...    elif player == 1 and computer == 2:
-...        return '勝ち'
-...    elif player == 2 and computer == 0:
-...        return '勝ち'
-...    else:
-...        return '負け'
+  # playerとcomputerの比較結果によって条件を分岐
+  ...    if player == computer :
+  ...        return '引き分け'
+  ...    elif player == 0 and computer == 1:
+  ...        return '勝ち'
+  ...    elif player == 1 and computer == 2:
+  ...        return '勝ち'
+  ...    elif player == 2 and computer == 0:
+  ...        return '勝ち'
+  ...    else:
+  ...        return '負け'
 
->>> print('じゃんけんをはじめます')
->>> player_name = input('名前を入力してください：')
->>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
->>> player_hand = int(input('数字で入力してください：'))
+  >>> print('じゃんけんをはじめます')
+  >>> player_name = input('名前を入力してください：')
+  >>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
+  >>> player_hand = int(input('数字で入力してください：'))
 
->>> if validate(player_hand):
-...    computer_hand = 1
-...    if player_name == '':
-...        print_hand(player_hand)
-...    else:
-...        print_hand(player_hand, player_name)
-...    print_hand(computer_hand, 'コンピューター')
+  >>> if validate(player_hand):
+  ...    computer_hand = 1
+  ...    if player_name == '':
+  ...        print_hand(player_hand)
+  ...    else:
+  ...        print_hand(player_hand, player_name)
+  ...    print_hand(computer_hand, 'コンピューター')
 
-# 変数resultに関数judgeの戻り値を代入
->>>    result = judge(player_hand, computer_hand)
+  # 変数resultに関数judgeの戻り値を代入
+  >>>    result = judge(player_hand, computer_hand)
 
-# 変数resultを出力
->>>    print('結果は' + result + 'でした')
+  # 変数resultを出力
+  >>>    print('結果は' + result + 'でした')
 
->>> else:
-...    print('正しい数値を入力してください')
-```
+  >>> else:
+  ...    print('正しい数値を入力してください')
+  ```
 
 ---
 
@@ -2393,11 +2395,11 @@ Falseのときには処理が実行されない
 
 - utils.pyファイル
 
-    ```python
-    >>> def validate(hand):
-    >>> def print_hand(hand, name = 'ゲスト')
-    >>> def judge(player, computer)
-    ```
+  ```python
+  >>> def validate(hand):
+  >>> def print_hand(hand, name = 'ゲスト')
+  >>> def judge(player, computer)
+  ```
 
 ---
 
@@ -2497,45 +2499,45 @@ Falseのときには処理が実行されない
 
 - 入力（randint関数を用いて、0-2の数値をランダムに取得）
 
-```python
->>> import utils
->>> import random
+  ```python
+  >>> import utils
+  >>> import random
 
->>> if utils.validate(player_hand):
-...    compuer_hand = random.randint(0, 2)
-```
+  >>> if utils.validate(player_hand):
+  ...    compuer_hand = random.randint(0, 2)
+  ```
 
 #### 演習（ライブラリを使おう）
 
 - 入力
 
-```python
->>> import utils
+  ```python
+  >>> import utils
 
-# randomモジュールを組み込む
->>> import random
+  # randomモジュールを組み込む
+  >>> import random
 
->>> print('じゃんけんをはじめます')
->>> player_name = input('名前を入力してください：')
->>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー）')
->>> player _hand = int(input('数字で入力してください：'))
+  >>> print('じゃんけんをはじめます')
+  >>> player_name = input('名前を入力してください：')
+  >>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー）')
+  >>> player _hand = int(input('数字で入力してください：'))
 
->>> if utils.validate(player_hand):
-# randintを用いてから0から2までの変数を取得し、変数computer_handに代入
-...    compuer_hand = random.randint(0, 2)
+  >>> if utils.validate(player_hand):
+  # randintを用いてから0から2までの変数を取得し、変数computer_handに代入
+  ...    compuer_hand = random.randint(0, 2)
 
-...    if player_name == '':
-...        utils.print_hand(player_hand)
-...    else:
-...        utils.print_hand(player_hand, player_name)
+  ...    if player_name == '':
+  ...        utils.print_hand(player_hand)
+  ...    else:
+  ...        utils.print_hand(player_hand, player_name)
 
-...    utils.print_hand(computer_hand, 'コンピューター')
+  ...    utils.print_hand(computer_hand, 'コンピューター')
 
-...    result = utils.judge(player_hand, compter_hand)
-...    print('結果は' + result + 'でした')
-... else:
-...    print('正しい数値を入力してください')
-```
+  ...    result = utils.judge(player_hand, compter_hand)
+  ...    print('結果は' + result + 'でした')
+  ... else:
+  ...    print('正しい数値を入力してください')
+  ```
 
 ---
 
@@ -2597,11 +2599,11 @@ Falseのときには処理が実行されない
 
 - 入力
 
-```python
->>> class MenuItem:
-...    # 処理
-...    pass
-```
+  ```python
+  >>> class MenuItem:
+  ...    # 処理
+  ...    pass
+  ```
 
 ---
 
@@ -2621,16 +2623,15 @@ Falseのときには処理が実行されない
 - 「クラス名()」とそのクラスを呼び出すことで、クラス（設計図）を用いて新しくインスタンスを生成することができる
 - 「変数名 = クラス名()」とすることで、生成したインスタンスを変数に代入することができる
 
-
 #### 入力例（インスタンスの生成）
 
 - 入力
 
-```python
->>> class MenuItem:
-...    pass
+  ```python
+  >>> class MenuItem:
+  ...    pass
 
->>> menu_item1 = MenuItem()
-```
+  >>> menu_item1 = MenuItem()
+  ```
 
 ---
