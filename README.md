@@ -3458,3 +3458,74 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 58. メニュー一覧の作成（2）
+
+### 58-01. メニューの番号を表示しよう
+
+- それぞれのメニューに0から始まる番号をつけて表示させてみる
+
+---
+
+### 58-02. 繰り返し処理で番号をつける
+
+- 番号をつけるには、番号を保存するための変数をfor文の外で用意
+- for文の処理野中で値を1だけ増やして更新するようにする
+
+#### 例（繰り返し処理で番号をつける）
+
+- 入力
+
+  ```python
+  >>> lessons = ['Python', 'Ruby', 'Java']
+  >>> index = 0
+  >>> for lesson in lessons:
+  ...    print(str(index) + '. ' + lesson)
+  ...    index += 1
+  ```
+
+- 出力
+
+  ```console
+  0. Python
+  1. Ruby
+  2. Java
+  ```
+
+---
+
+#### 演習（メニュー一覧の作成（2）
+
+- 入力
+
+  ```python
+  >>> from menu_item import MenuItem
+
+  >>> menu_item1 = MenuItem('サンドイッチ', 500)
+  >>> menu_item2 = MenuItem('チョコケーキ', 400)
+  >>> menu_item3 = MenuItem('コーヒー', 300)
+  >>> menu_item4 = MenuItem('オレンジジュース', 200)
+
+  >>> menu_items = [menu_item1, menu_item2, menu_item3, menu_item4]
+
+  # 変数indexを定義し、数値の「0」を代入
+  >>> index = 0
+
+  >>> for menu_item in menu_items:
+  # 「0. サンドイッチ: ¥500」となるように出力
+  ...    print(str(index) + '. ' + menu_item.info())
+
+  # 変数indexに1を加える
+  >>> index += 1
+  ```
+
+- 出力
+
+  ```console
+  0. サンドイッチ: ¥500
+  1. チョコケーキ: ¥400
+  2. コーヒー: ¥300
+  3. オレンジジュース: ¥200
+  ```
+
+---
