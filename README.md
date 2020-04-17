@@ -4164,3 +4164,105 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 68. super()
+
+### 68-01. メソッド内の重複
+
+- Foodクラスで__init__メソッドをオーバーライドした
+- nameとpriceについては共通の処理で、MenuItemクラスの__init__メソッドにも含まれている
+- メソッド内の重複をまとめる方法について学ぶ
+
+#### 例（メソッド内の重複）
+
+- 入力
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self):
+    ...        self.name = name
+    ...        self.price = price
+    ```
+  
+  - food.pyファイル（nameとpriceが同じ内容のことをしている）
+
+    ```python
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie):
+    ...        self.name = name
+    ...        self.price = price
+    ...        self.calorie = calorie
+    ```
+
+---
+
+### 68-02. super()
+
+- オーバーライドしたメソッドの中で「super()」とすることで、親クラスを呼び出すことができる
+- 「super().メソッド名()」とすることで、親クラス内に定義されたインスタンスメソッドをそのまま利用することが可能
+
+#### 例（super()）
+
+- 入力
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self, name, price):
+    ...        self.name = name
+    ...        self.price = price
+    ```
+
+  - food.pyファイル
+
+    ```python
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie):
+    ...        super().__init__(name, price)
+    ...        self.calorie = calorie
+    ```
+
+---
+
+#### 演習（super()）
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie):
+    # super()を用いて、親クラスの__init__()を呼び出す
+    ...        super().__init__(name, price)
+
+    # 以下2行を削除
+    ...        # self.name = name
+    ...        # self.price = price
+
+    ...        self.calorie = calorie
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.calorie) + 'Kcal）'
+
+    ...    def calorie_info(self):
+    ...        print(str(self.calorie) + 'Kcalです')
+    ```
+
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500, 330)
+    >>> print(food1.info())
+
+    >>> drink1 = Drink('コーヒー', 300)
+    >>> drink1.amount = 180
+    >>> print(drink1.info())
+    ```
+
+---
