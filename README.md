@@ -3600,3 +3600,164 @@ Falseのときには処理が実行されない
    ```
 
 ---
+
+## 60. 合計金額の計算
+
+### 60-01. 合計金額を出力しよう
+
+- 最後に注文する個数を受け取って、合計金額を出力させる
+- 注文が3つ以上のときは10%割引した値段になるようにする
+
+---
+
+### 60-02. 合計金額を1割引にする
+
+- MenuItemクラス内に定義した「get_total_price」メソッド内で、引数countの値が3以上の場合には結果を1割引にする
+- 数値の計算では少数を使うことも可能
+  変数total_priceの値に「0.9」をかける
+
+#### 例（合計金額を1割引にする）
+
+- 入力
+  - script.pyファイル
+  
+    ```python
+    >>> result = selected_menu.get_total_price(4)
+    >>> print(result)
+    ```
+  
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def get_total_price(self, count):
+    ...    total_price = self.price * count
+
+    ...    if count が3以上:
+    ...        total_price *= 0.9
+    ...    return total_price
+    ```
+
+- 出力
+
+  ```console
+  1440
+  ```
+
+---
+
+### 60-03. 四捨五入
+
+- 整数と少数を計算した結果は、少数で出力されてしまう
+- 今回は料金なので整数で出力するようにする
+- roung(少数)とすることで四捨五入した結果の整数を取得することができる
+
+#### 例（四捨五入）
+
+- 入力
+  - 入力例：1(小数点で出力される)
+
+    ```python
+    >>> number = 7 * 0.9
+    >>> print(number)
+    ```
+  
+  - 出力例：1
+
+    ```console
+    6.3
+    ```
+
+  - 入力例：2（整数で出力される）
+
+    ```python
+    >>> number = 7 * 0.9
+    >>> print(round(number))
+    ```
+  
+  - 出力例：2
+
+    ```console
+    6
+    ```
+
+---
+
+#### 演習（合計金額の計算）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> menu_item1 = MenuItem('サンドイッチ', 500)
+    >>> menu_item2 = MenuItem('チョコケーキ', 400)
+    >>> menu_item3 = MenuItem('コーヒー', 300)
+    >>> menu=item4 = MenuItem('オレンジジュース', 200)
+
+    >>> menu_items = [menu_item1, menu_item2, menu_item3, menu_item4]
+
+    >>> index = 0
+
+    >>> for menu_item in menu_items:
+    ...    print(str(index) + '. ' + menu_item.info())
+    ...    index += 1
+
+    >>> print('--------------------')
+
+    >>> order = int(input('メニューの番号を入力してください：'))
+    >>> selected_menu = menu_items[order]
+    >>> print('選択されたメニュー：' + selected_menu.name)
+
+    # コンソールから入力を受け取り、変数countに代入
+    >>> count = int(input('個数を入力してください(3つ以上で1割引：'))
+
+    # get_total_priceメソッドを呼び出す
+    >>> result = selected_menu.get_total_price(count)
+
+    # 「合計金額は○○円です」となるように出力
+    >>> print('合計は' + str(result) + '円です')
+    ```
+
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self):
+    ...        self.name = name
+    ...        self.price = price
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price)
+
+    ...    def get_total_price(self, count):
+    ...        total_price = self.price * count
+
+    # countが3つ以上のとき、total_priceに0.9かける
+    ...        if count >= 3:
+    ...            total_price *= 0.9
+
+    # total_priceを四捨五入して、returnする
+    ...        return round(total_price)
+    ```
+
+- 出力（オレンジジュース、5個）
+
+  ```console
+  0. サンドイッチ: ¥500
+  1. チョコケーキ: ¥400
+  2. コーヒー: ¥300
+  3. オレンジジュース: ¥200
+  --------------------
+  メニューの番号を入力してください：3
+  選択されたメニュー：オレンジジュース
+  個数を入力してください（3つ以上で1割引）：5
+  合計は900円です
+  ```
+
+---
+
+
+
+
