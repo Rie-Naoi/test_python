@@ -2856,3 +2856,91 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 50. インスタンスメソッド（self）
+
+### 50-01. インスタンスメソッド
+
+- クラスの中で定義し、インスタンスに対して呼び出すメソッドを「インスタンスメソッド」と呼ぶ
+
+---
+
+### 50-02. メニューの内容を出力する機能
+
+- 先に作成したinfoメソッドを改良して、メニューの名前や値段を出力するようにしてみる
+
+---
+
+### 50-03. インスタンスメソッドのselfの正体
+
+- インスタンスメソッドの第1引数に指定した「self」には、そのメソッドを呼び出したインスタンス自身が代入されている
+- 「self.name」とすることで、そのメソッドを呼び出している「menu_item1」の「name」の値を取得することができる
+
+#### 例（インスタンスメソッドのselfの正体）
+
+- 入力（selfにmenu_item1が代入される)
+
+  ```python
+  >>> class MenuItem:
+  ...    def info(self):
+  ...        print(self.name)
+
+  >>> menu_item1 = MenuItem()
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> menu_item1.info()
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ
+  ```
+
+---
+
+### 50-04. 型変換の復習
+
+- 今回は「name」と「price」の値を用いて、「サンドイッチ：¥500」と出力させる
+- 「price」は数値型であるため、文字列と結合させるために文字列型に変換する必要がある
+
+#### 例（型変換の復習）
+
+- 入力
+
+  ```python
+  >>> age = 21
+  >>> print(str(age) + '歳です')
+  ```
+
+- 出力
+
+  ```console
+  21歳です
+  ```
+
+---
+
+#### 演習（インスタンスメソッド（self）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def info(self):
+  # 「○○: ¥□□」となるように出力
+  ...        print(self.name + ': ¥' + str(self.price))
+
+  >>> menu_item1 = MenuItem()
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> menu_item1.price = 500
+
+  >>> menu_item1.info()
+
+  >>> menu_item2 = MenuItem()
+  >>> menu_item2.name = 'チョコケーキ'
+  >>> menu_item2.price = 400
+
+  >>> menu_item2.info()
+  ```
+
+---
