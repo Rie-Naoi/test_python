@@ -3390,3 +3390,71 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 57. メニュー一覧の作成（1）
+
+### 57-01. メニュー一覧を表示しよう
+
+- それぞれのメニューを一覧で表示する
+- 複数のメニューのインスタンスをリストに入れて、繰り返す処理を使ってみる
+
+---
+
+### 57-02. インスタンスのリスト
+
+- MenuItemクラスから生成したインスタンスも、リストの要素にすることができる
+- 各インスタンスを要素とするリストを変数menu_itemsに代入する
+- リストに対してfor文を用いることでそれぞれのインスタンスの情報を出力できる
+
+#### 例（インスタンスのリスト）
+
+- 入力
+
+  ```python
+  >>> from menu_item import MenuItem
+  >>> menu_item1 = MenuItem('サンドイッチ', 500)
+  >>> menu_item2 = MenuItem('チョコケーキ', 400)
+  >>> menu_items = [menu_item1, menu_item2]
+  >>> for menu_item in menu_items:
+  ...    print(menu_item.info())
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ: ¥500
+  チョコケーキ: ¥400
+  ```
+
+---
+
+#### 演習（メニュー一覧の作成（1）
+
+- 入力
+
+  ```python
+  >>> from menu_item import MenuItem
+
+  >>> menu_item1 = MenuItem('サンドイッチ', 500)
+  >>> menu_item2 = MenuItem('チョコケーキ', 400)
+  >>> menu_item3 = MenuItem('コーヒー', 300)
+  >>> menu_item4 = MenuItem('オレンジジュース'200)
+
+  # 指定されたリストを変数menu_itemsに代入
+  >>> menu_items = [menu_item1, menu_item2, menu_item3, menu_item4]
+
+  # for文を作成
+  >>> for menu_item in menu_items:
+  ...    print(menu_item.info())
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ: ¥500
+  チョコケーキ: ¥400
+  コーヒー: ¥300
+  オレンジジュール: ¥200
+  ```
+
+---
