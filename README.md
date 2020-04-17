@@ -3213,3 +3213,71 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 55. __init__メソッド（3）
+
+### 55-01. __init__メソッドの引数
+
+- 通常のインスタンスメソッドと同様に、引数を受け取ることもできる
+- インスタンスを生成している「クラス名()」に対して引数を渡すことでできる
+
+#### 例（__init__メソッドの引数）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def __init__(self, name):
+  ...        self.name = name
+
+  >>> menu_item1 = MenuItem('チョコケーキ')
+  >>> print(menu_item1.name)
+  ```
+
+- 出力
+
+  ```console
+  チョコケーキ
+  ```
+
+---
+
+#### 演習（__init__メソッド（3））
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  # 引数「name」と「price」を受け取るようにする
+  ...    def __init__(self, name, price):
+
+  # 「サンドイッチ」の代わりに引数nameを代入
+  ...        self.name = name
+
+  # 「500」の代わりに引数priceの値を代入
+  ...        self.price = price
+
+  ...    def info(self):
+  ...        return self.name + ': ¥' + str(self.price)
+
+  ...    def get_total_price(self, count):
+  ...        total_price = self.price * count
+  ...        return total_price
+
+  # 引数を「サンドイッチ」と「500」にする
+  >>> menu_item1 = MenuItem('サンドイッチ', 500)
+
+  >>> print(menu_item1.info())
+
+  >>> result = menu_item1.get_total_price(4)
+  >>> print('合計は' + str(result) + '円です')
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ: ¥500
+  合計は2000円です
+  ```
+
+---
