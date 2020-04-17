@@ -3529,3 +3529,74 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 59. 入力を受け取る
+
+### 59-01. 入力を受け取ろう
+
+- コンソールから注文を入力させる
+
+---
+
+### 59-02. 数値を受け取る
+
+- 「input」を用いて注文するメニューの番号をコンソールから受け取れるようにする
+- 受け取った数字は文字列型になってしまうので「int()」を用いて数値型に変換する必要があることに注意する
+
+#### 例（数値を受け取る）
+
+- 入力
+
+  ```python
+  >>> menu_items = [menu_item1, menu_item2, menu_item3]
+  >>> oder = int(input('メニューの番号を入力してください：'))
+  >>> selected_menu = menu_items[oder]
+  ```
+
+---
+
+#### 演習（入力を受け取る）
+
+- 入力
+
+  ```python
+  >>> from menu_item import MenuItem
+
+  >>> menu_item1 = MenuItem('サンドイッチ', 500)
+  >>> menu_item2 = MenuItem('チョコケーキ', 400)
+  >>> menu_item3 = MenuItem('コーヒー', 300)
+  >>> menu_item4 = MenuItem('オレンジジュース', 200)
+
+  >>> menu_items = [menu_item1, menu_item2, menu_item3, menu_item4]
+
+  >>> index = 0
+
+  >>> for menu_item in menu_items:
+  ...    print(str(index) + '. ' + menu_item.info())
+  ...    index += 1
+
+  >>> print('--------------------')
+
+  # コンソールから入力を受け取り、変数orderに代入
+  >>> order = int(input('メニューの番号を入力してください：'))
+
+  # 選択されたメニューを変数selected_menuに代入
+  >>> selected_menu = menu_items[order]
+
+  # 「選択されたメニュー:○○」と出力
+  >>> print('選択されたメニュー:' + selected_menu.name)
+  ```
+
+- 出力（例：2を入力）
+
+  ```console
+   1. サンドイッチ: ¥500
+   2. チョコケーキ: ¥400
+   3. コーヒー: ¥300
+   4. オレンジジュース: ¥200
+   --------------------
+   メニューの番号を入力してください:2
+   選択されたメニュー: コーヒー
+   ```
+
+---
