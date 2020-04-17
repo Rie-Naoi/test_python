@@ -3131,3 +3131,85 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 54. __init__メソッド（2）
+
+### 54-01. インスタンス変数に値を代入する
+
+2と3をまとめて「インスタンスを生成すると同時にインスタンス変数に値を代入する」
+
+- インスタンス生成手順
+  
+  1. クラスを用意する
+  2. クラスからインスタンスを生成する
+  3. インスタンス変数に値を代入する
+
+---
+
+### 54-02. __init__メソッドでインスタンス変数を扱う
+
+- __init__メソッドの中で、インスタンス変数に値を代入してみる
+- インスタンスメソッドの中では「self.変数名」でインスタンス変数を扱うことができる
+- 「self.変数名 = 値」でインスタンス変数に値を代入できる
+
+#### 例（__init__メソッドでインスタンス変数を扱う）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def __init__(self):
+  ...        self.name = 'サンドイッチ'
+
+  >>> menu_item1 = MenuItem()
+  >>> print(menu_item1.name)
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ
+  ```
+
+---
+
+#### 演習（__init__メソッド（2）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def __init__(self):
+  # self.nameに「サンドイッチ」を代入
+  ...        self.name = 'サンドイッチ'
+
+  # self.priceに「500」を代入
+  ...        self.price = 500
+
+  ...    def info(self):
+  ...        return self.name + ': ¥' + str(self.price)
+
+  ...    def get_total_price(self, count):
+  ...        total_price = self.price * count
+  ...        return total_price
+
+  >>> menu_item1 = MenuItem()
+
+  # 以下2行は削除する
+  >>># menu_item1.name = 'サンドイッチ'
+  >>># menu_item1.price = 500
+
+  >>> print(menu_item1.info())
+
+  >>> result = menu_item1.get_total_price(4)
+  >>> print('合計は' + str(result) + '円です')
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ: ¥500
+  合計は2000円です
+  ```
+
+---
