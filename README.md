@@ -2246,3 +2246,46 @@ Falseのときには処理が実行されない
 ```
 
 ---
+
+## 40. じゃんけんゲームを作ろう
+
+- じゃんけんゲームを完成させていく
+- コンピューターとじゃんけんし、勝敗を判定できるようにする
+- 完成させていく過程でモジュールについても学習する
+
+### 40-01. じゃんけんをしよう
+
+#### 演習（じゃんけんをしよう）
+
+```python
+>>> def validate(hand):
+...    if hand < 0 or hand > 2:
+...        return False
+...    return True
+
+>>> def print_hand(hand, 'ゲスト'):
+...    hands =['グー', 'チョキ', 'パー']
+...    print(name + 'は' + hands[hand] + 'を出しました')
+
+>>> print('じゃんけんをはじめます')
+>>> player_name = input('名前を入力してください：')
+>>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー)')
+>>> player_hand = int(input('数字で入力してください：'))
+
+>>> if validate(player_hand):
+# 変数computer_handに数値1を代入
+...    computer_hand = 1
+
+...    if player_name == '':
+...        print_hand(player_hand)
+...    else:
+...        print_hand(player_hand, player_name)
+
+# 第1引数をcomputer_hand、第2引数を文字列「コンピューター」として関数print_handを呼び出す
+...    print_hand(compuer_hand, 'コンピューター')
+
+... else:
+...    print('正しい数値を入力してください')
+```
+
+---
