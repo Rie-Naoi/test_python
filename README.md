@@ -3281,3 +3281,112 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 56. ファイルの分類
+
+### 56-01. 目標物に近づけよう
+
+- MenuItemクラスの定義部分を「menu_item.py」という別ファイルに移してコードを管理しやすくする
+
+---
+
+### 56-02. importの復習
+
+- Pythonでは一部を別ファイルに移して、モジュールとして読み込むことができる
+- モジュールを読み込むには「import モジュール名（ファイル名）」
+
+#### 例（importの復習）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>> import menu_item
+    >>> menu_item1 =menu_item.Menuitem()
+    ```
+  
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self, name, price):
+    ...    self.name = name
+    ...    self.price = price
+    ```
+
+---
+
+### 56-03. クラスを直接読み込む
+
+- importには、より便利な方法が用意されている
+- 「from モジュール名　import クラス名」とすることで、モジュール内の指定したクラスを直接読み込むことができる
+
+#### 例（クラスを直接読み込む）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+    >>> menu_item1 = MenuItem('サンドイッチ', 500)
+    ```
+
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self, name, price):
+    ...        self.name = name
+    ...        self.price = price
+    ```
+
+---
+
+#### 演習（ファイルの分類）
+
+- 入力
+  - script.pyファイル
+
+    ```python
+    >>># class MenuItem:
+    ...#    def __init__(self, name, price):
+    ...#        self.name = name
+    ...#        self.price = price
+
+    ...#    def info(self):
+    ...#        return self.name + ': ¥' + str(self.price)
+
+    ...#    def get_total_price(self, count):
+    ...#        total_price = self.price * count
+    ...#        return total_price
+
+    # この行より上のコードを「menu_item.py」に移動させる
+
+    # menu_item.pyからMenuItemクラスを読み込む
+    >>> from menu_item import MenuItem
+
+    >>> menu_item1 = MenuItem('サンドイッチ', 500)
+
+    >>> print(menu_item1.info())
+
+    >>> result = menu_item1.get_total_price(4)
+    >>> print('合計は' + str(result) + '円です')
+    ```
+  
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def __init__(self, name, price):
+    ...        self.name = name
+    ...        self.price = price
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price)
+
+    ...    def get_total_price(self, count):
+    ...        total_price = self.price * count
+    ...        return total_price
+    ```
+
+---
