@@ -2725,3 +2725,54 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 48. 複数のインスタンス
+
+### 48-01. インスタンスごとに情報を持つことを確認しよう
+
+- 複数のインスタンスを作成して、インスタンスごとに異なる情報が持てることを確認する
+
+---
+
+#### 演習（複数のインスタンス）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    pass
+
+  >>> menu_item1 = MenuItem()
+  
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> print(menu_item1.name)
+
+  >>> menu_item1.price = 500
+  >>> print(menu_item1.price)
+
+  # MenuItemクラスのインスタンスを生成
+  >>> menu_item2 = MenuItem()
+
+  # menu_item2のnameに「チョコケーキ」を代入
+  >>> menu_item2.name = 'チョコケーキ'
+
+  # menu_item2のnameを出力
+  >>> print(menu_items.name)
+
+  # menu_item2のpriceに「400」を代入
+  >>> menu_item2.price = 400
+
+  # menu_item2のpriceを出力
+  >>> print(menu_item2.price)
+  ```
+
+- 出力
+
+  ```cosole
+  サンドイッチ
+  500
+  チョコケーキ
+  400
+  ```
+
+---
