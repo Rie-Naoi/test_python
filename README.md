@@ -2197,3 +2197,52 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 39. returnの性質
+
+- returnは戻り値を呼び出し元に返すだけではなく、関数内の処理を終了させる性質も持っている
+- return以降の関数の処理が実行されることはない
+
+### 例（returnの性質）
+
+- 入力（return以降の処理「Hello World」は実行されない）
+
+```python
+>>> def add(a, b):
+...    return a + b
+...    print('Hello World')
+>>> sum = add(1, 3)
+>>> print(sum)
+```
+
+- 出力
+
+```console
+4
+```
+
+---
+
+### 39-01. 複数のreturn
+
+- 条件分岐と組み合わせると複数のreturnを用いることができる
+
+#### 例（複数のreturn)
+
+- 入力
+
+```python
+>>> def hello(name = 'ゲスト'):
+...    if name == 'ゲスト':
+...        return '名前を教えてください'
+...    return name + 'さん、ようこそ！'
+>>> print(hello())
+```
+
+- 出力
+
+```console
+名前を教えてください
+```
+
+---
