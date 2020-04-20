@@ -3055,3 +3055,79 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 53. __init__メソッド（1）
+
+### 53-01. 特殊なインスタンスメソッド
+
+- __init__という名前のインスタンスメソッドはインスタンスが生成された時に必ず呼び出される
+
+---
+
+### 53-02. __init__メソッド
+
+- インスタンスを生成した直後に処理を実行することができる
+- 「クラス名()」でインスタンスを生成した直後に自動で呼び出される
+
+---
+
+### 53-03. __init__メソッドを用いる
+
+- 他のインスタンスメソッドと同様に定義することができる
+
+#### 例（__init__メソッドを用いる）
+
+- 入力（インスタンスが生成されると自動で呼び出される）
+
+  ```python
+  >>> class MenuItem:
+  ...    def __init__(self):
+  ...        print('メニューが生成されました')
+  ...
+  >>> menu_item1 = MenuItem()
+  ```
+
+- 出力
+
+  ```console
+  メニューが生成されました
+  ```
+
+---
+
+#### 演習（__init__メソッド（1）
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  # __init__メソッドを定義する
+  ...    def __init__(self):
+  ...        print('MenuItemクラスのインスタンスが生成されました！')
+
+  ...    def info(self):
+  ...        return self.name + ': ¥' + str(self.price)
+
+  ...    def get_total_price(self, count):
+  ...        total_price = self.price * count
+  ...        return total_price
+
+  >>> menu_item1 = MenuItem()
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> menu_item1.price = 500
+
+  >>> print(menu_item1.info())
+
+  >>> result = menu_item1.get_total_price(4)
+  >>> print('合計は' + str(result) + '円です')
+  ```
+
+- 出力
+
+  ```console
+  MenuItemクラスのインスタンスが生成されました！
+  サンドイッチ: ¥500
+  合計は2000円です
+  ```
+
+---
