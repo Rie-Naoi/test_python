@@ -2944,3 +2944,45 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 51. インスタンスメソッド（戻り値）
+
+### 51-01. インスタンスメソッドの活用
+
+- インスタンスメソッドは通常の関数と同様に戻り値を返すようにすることもできる
+
+---
+
+#### 演習（インスタンスメソッド（戻り値））
+
+- 入力
+
+  ```python
+  >>> class MenuItem:
+  ...    def info(self):
+  # print()の中身を戻り値として返す
+  ...        return self.name + ': ¥' + str(self.price)
+
+  >>> menu_item1 = MenuIte()
+  >>> menu_item1.name = 'サンドイッチ'
+  >>> menu_item1.price = 500
+
+  # menu_item1.info()の値を出力
+  >>> pring(menu_item1.info())
+
+  >>> menu_item2 = MenuItem()
+  >>> menu_item2.name = 'チョコケーキ'
+  >>> menu_item2.price = 400
+
+  # menu_item2.info()の値を出力
+  >>> print(menu_item2.info())
+  ```
+
+- 出力
+
+  ```console
+  サンドイッチ¥: 500
+  チョコケーキ¥: 400
+  ```
+
+---
