@@ -2471,3 +2471,70 @@ Falseのときには処理が実行されない
   ```
 
 ---
+
+## 43. ライブラリを使おう
+
+### 43-01. じゃんけんゲームを完成させよう
+
+- 最後にコンピューターの出す手をランダムにしてみる
+
+---
+
+### 43-02. ライブラリ
+
+- 前回は自分でモジュールを作成したが、pythonには便利なモジュールがいくつか用意されている
+- あらかじめ用意されているモジュールのことを「標準ライブラリ」と呼ばれる
+- importを用いて読み込むことで便利な関数を利用できるようになる
+
+---
+
+### 43-03. randomモジュール
+
+- randomモジュールに用意されている関数randintを用いて、コンピューターの手をランダムになるようにさせる
+- random.randint(x, y)と書くことで、xからyまでの整数をランダムに取得することができる
+
+#### 例（randomモジュール）
+
+- 入力（randint関数を用いて、0-2の数値をランダムに取得）
+
+```python
+>>> import utils
+>>> import random
+
+>>> if utils.validate(player_hand):
+...    compuer_hand = random.randint(0, 2)
+```
+
+#### 演習（ライブラリを使おう）
+
+- 入力
+
+```python
+>>> import utils
+
+# randomモジュールを組み込む
+>>> import random
+
+>>> print('じゃんけんをはじめます')
+>>> player_name = input('名前を入力してください：')
+>>> print('何を出しますか？（0: グー, 1: チョキ, 2: パー）')
+>>> player _hand = int(input('数字で入力してください：'))
+
+>>> if utils.validate(player_hand):
+# randintを用いてから0から2までの変数を取得し、変数computer_handに代入
+...    compuer_hand = random.randint(0, 2)
+
+...    if player_name == '':
+...        utils.print_hand(player_hand)
+...    else:
+...        utils.print_hand(player_hand, player_name)
+
+...    utils.print_hand(computer_hand, 'コンピューター')
+
+...    result = utils.judge(player_hand, compter_hand)
+...    print('結果は' + result + 'でした')
+... else:
+...    print('正しい数値を入力してください')
+```
+
+---
