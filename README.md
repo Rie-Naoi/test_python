@@ -3774,3 +3774,63 @@ Falseのときには処理が実行されない
 - 食べ物の場合には「カロリー」飲み物の場合には「容量」が表示されるようにする
 
 ---
+
+## 62. 継承とは
+
+### 62-01. 食べ物と飲み物を分ける
+
+- 食べ物を扱う「Food」クラス
+- 飲み物を扱う「Drink」クラスを用意する
+
+---
+
+### 62-02. 既存のクラスを活用する
+
+- 1から作ることもできるがすでにあるMenuItemクラスを利用して作ることができる
+- 共通部分をまとめることができ、効率的にコードを書くことができる
+
+---
+
+### 62-03. 継承とは
+
+- あるクラスを元にして新たなクラスをつくることを「継承」と呼ぶ
+- 「class 新しいクラス名（元となるクラス名）:」とする
+- 新しいクラスは「子クラス」、元となるクラスは「親クラス」と呼ばれる
+
+#### 入力例（継承とは）
+
+- 入力
+
+  ```python
+  >>> from menu_item import MenuItem
+  >>> class Food(MenuItem):
+  ```
+
+---
+
+#### 演習（継承とは）
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    # fromとimportを用いて、MenuItemクラスを読み込む
+    >>> from menu_item import MenuItem
+
+    # MenuItemクラスを継承して、Foodクラスを定義
+    >>> class Food(MenuItem):
+    ...    pass
+    ```
+
+  - drink.pyファイル
+
+    ```python
+    # fromとimportを用いて、MenuItemクラスを読み込む
+    >>> from menu_item import MenuItem
+
+    # MenuItemクラスを継承して、Drinkクラスを定義
+    >>> class Drink(MenuItem):
+    ...    pass
+    ```
+
+---
