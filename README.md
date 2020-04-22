@@ -4266,3 +4266,50 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 69. オーバーライドの復習
+
+### 69-01. Drinkクラスの__init__メソッド
+
+- Drinkクラスについても同様に実装する
+
+---
+
+#### 演習（オーバーライドの復習）
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+    ...    def __init__(self, name, price, calorie):
+    ...        super().__init__(name, price)
+    ...        self.calorie = calorie
+
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.calorie) + 'Kcal）'
+
+    ...    def calorie_info(self):
+    ```
+
+  - script.pyファイル
+
+    ```python
+    >>> from doof import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500, 330)
+    >>> print(food1.info())
+
+    # Drink()に引数を追加してください
+    >>> drink1 = Drink('コーヒー', 300, 180)
+
+    # 以下の1行は削除してください
+    >>> # drink1.amount = 180
+
+    >>> print(drink1.info())
+    ```
+
+---
