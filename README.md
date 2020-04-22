@@ -4043,3 +4043,47 @@ Falseのときには処理が実行されない
     ```
 
 ---
+
+## 66. infoメソッドの改良（2）
+
+### 66-01. Drinkクラスでinfoメソッドを定義する
+
+- Drinkクラスでは、飲み物の量を表示するように改良する
+
+---
+
+#### 演習（infoメソッドの改良（2））
+
+- 入力
+  - drink.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Drink(MenuItem):
+    # infoメソッドを定義
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.amount) + 'ML)'
+    ```
+  
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500)
+    >>> food1.calorie = 330
+    >>> print(food1.info())
+
+    # Drinkクラスのインスタンスを生成して変数drink1に代入
+    >>> drink1 = Drink('コーヒー', 300)
+
+    # drink1のamountに「180」を代入
+    >>> drink1.amount = 180
+
+    # drink1に対してinfoメソッドを呼び出して戻り値を出力
+    >>> print(drink1.info())
+    ```
+
+---
