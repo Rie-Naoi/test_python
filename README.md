@@ -3960,3 +3960,86 @@ Falseのときには処理が実行されない
 
 ---
 
+## 65. infoメソッドの改良（1）
+
+### 65-01. メソッドを上書きする
+
+- infoメソッドを改良してカロリーも一緒にひょうじできるようにする
+- Foodクラス内でinfoメソッドを上書きする
+
+---
+
+### 65-02. オーバーライド
+
+- 親クラスにあるメソッドと同じ名前のメソッドを子クラスで定義すると、メソッドを上書きできる
+- これをメソッドの「オーバーライド」と呼ぶ
+- オーバーライドすると、子クラスのインスタンスは親クラスのメソッドではなく、子クラスで定義したメソッドを呼び出すようになる
+
+#### 例（オーバーライド）
+
+- 入力（food.pyファイルで作成したinfoがscriptファイルのfood1.infoで呼び出される）
+  - script.pyファイル
+
+    ``` python
+    >>> from food import Food
+    >>> food1 = Food('サンドイッチ', 500)
+    >>> food1.calorie = 330
+    >>> print(food1.info())
+    ```
+
+  - menu_item.pyファイル
+
+    ```python
+    >>> class MenuItem:
+    ...    def info(self):
+    ...        return
+    ```
+  
+  - food.pyファイル
+
+    ```python
+    >>> class Food(MenuItem):
+    ...    def info(self):
+    ...        return
+    ```
+
+---
+
+### 65-02. オーバーライドの仕組み
+
+- 子クラスのインスタンスは、子クラスで定義したメソッドを優先して呼び出すようになっている
+- 子クラスと親クラスに同名のメソッドがある場合は、メソッドの内容が上書きされたようになる
+
+---
+
+#### 演習（infoメソッドの改良（1））
+
+- 入力
+  - food.pyファイル
+
+    ```python
+    >>> from menu_item import MenuItem
+
+    >>> class Food(MenuItem):
+    # infoメソッドを定義
+    ...    def info(self):
+    ...        return self.name + ': ¥' + str(self.price) + '（' + str(self.calorie) + 'kcal）'
+
+    ...    def calorie_info(self):
+    ...        print(str(self.calorie) + 'kcalです')
+    ```
+
+  - script.pyファイル
+
+    ```python
+    >>> from food import Food
+    >>> from drink import Drink
+
+    >>> food1 = Food('サンドイッチ', 500)
+    >>> food1.calorie = 300
+
+    # food1に対してinfoメソッドを呼び出して戻り値を出力
+    print(food1.info())
+    ```
+
+---
